@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<tr th:each="location : ${path}">
+    <td th:text="${location.name}   "></td>
+</tr>
+<p>Информация о начальной локации</p>
+<p th:text="${start.name}" />
+<p th:text="${start.biome.name}" />
+<p>Информация о конечной локации</p>
+<p th:text="${finish.name}" />
+<p th:text="${finish.biome.name}" />
+<form action="#" th:action="@{/}">
+    <button type="submit">Назад</button>
+</form>
+</body>
+</html>

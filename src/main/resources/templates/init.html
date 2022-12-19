@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Start</title>
+</head>
+<body>
+<form action="#" th:action="@{/route}" th:object="${form}" method="post">
+    <select class="form-control" id="firstLocation" name="firstLocation">
+        <option th:each="location : ${locations}"
+                th:value="${location.id}"
+                th:text="${location.name}">
+        </option>
+    </select>
+    <select class="form-control" id="secondLocation" name="secondLocation">
+        <option th:each="location : ${locations}"
+                th:value="${location.id}"
+                th:text="${location.name}">
+        </option>
+    </select>
+    <select class="form-control" id="race" name="race">
+        <option th:each="race : ${races}"
+                th:value="${race.id}"
+                th:text="${race.name}">
+        </option>
+    </select>
+    <button type="submit">Подтвердить</button>
+</form>
+</body>
+</html>
