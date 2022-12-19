@@ -2,6 +2,7 @@ package itmo.isdb.middleearth.controller
 
 import itmo.isdb.middleearth.Form
 import itmo.isdb.middleearth.Graph
+import itmo.isdb.middleearth.service.EquipmentService
 import itmo.isdb.middleearth.service.LocationService
 import itmo.isdb.middleearth.service.RaceService
 import org.springframework.beans.factory.annotation.Autowired
@@ -17,7 +18,9 @@ class MainController(
     private val locationService: LocationService,
     @Autowired
     private val raceService: RaceService,
-    private val graph: Graph
+    private val graph: Graph,
+    @Autowired
+    private val equipmentService: EquipmentService
 ) {
     @GetMapping("/")
     fun getInitInformation(model: Model): String {
