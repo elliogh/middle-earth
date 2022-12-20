@@ -13,6 +13,6 @@ class LocationServiceImpl(
     override fun getAll(): List<Location> =
         locationRepository.findAll()
 
-    override fun getLocationById(id: Long): Optional<Location> =
+    override fun getLocationById(id: Int): Optional<Location> =
         locationRepository.findById(id)
 }

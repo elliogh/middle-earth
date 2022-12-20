@@ -10,10 +10,10 @@ class Graph(
     @Autowired
     val locationService: LocationService
 ) {
-    private val graph: Map<Long, Location> = locationService.getAll()
+    private val graph: Map<Int, Location> = locationService.getAll()
         .associateBy { it.id }
 
-    fun bfs(begin: Long, end: Long): ArrayList<Location> {
+    fun bfs(begin: Int, end: Int): ArrayList<Location> {
         val visited = HashSet<Location>()
         val queue = ArrayDeque<Location>()
         graph[begin]?.let { queue.add(it) }

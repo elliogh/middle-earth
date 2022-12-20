@@ -5,5 +5,5 @@ import java.util.*
 
 interface LocationService {
     fun getAll(): List<Location>
-    fun getLocationById(id: Long): Optional<Location>
+    fun getLocationById(id: Int): Optional<Location>
 }

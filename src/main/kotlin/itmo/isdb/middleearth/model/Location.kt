@@ -13,7 +13,7 @@ import lombok.Setter
 class Location(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long,
+    val id: Int,
     val name: String,
     @ManyToOne
     @JoinColumn(name = "biome_id")
@@ -21,7 +21,7 @@ class Location(
     @ManyToOne
     @JoinColumn(name = "race_id")
     val race: Race,
-    val visitTime: Long,
+    val visitTime: Int,
     val description: String,
     @ManyToMany(cascade = [ CascadeType.PERSIST, CascadeType.MERGE ], fetch = FetchType.EAGER)
     @JoinTable(

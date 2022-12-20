@@ -10,15 +10,21 @@ class EquipmentServiceImpl(
     val equipmentRepository: EquipmentRepository
 ) : EquipmentService {
     @Transactional
-    override fun getNecessaryEquipment(locationId: Int, raceId: Int): ArrayList<Long> =
+    override fun getNecessaryEquipment(locationIds: ArrayList<Int>, raceId: Int): ArrayList<Equipment> =
         try {
-            equipmentRepository.getNecessaryEquipment(locationId, raceId)
+            val setOfEquipmentIds = mutableSetOf<Int>()
+            val necessaryEquipment = arrayListOf<Equipment>()
+            locationIds.forEach {
+                setOfEquipmentIds.addAll(equipmentRepository.getNecessaryEquipment(it, raceId))
+            }
+            necessaryEquipment.addAll(equipmentRepository.findByIdIn(setOfEquipmentIds.toList()))
+
+            necessaryEquipment
         } catch (e: Exception) {
             e.printStackTrace()
             arrayListOf()
         }
 
-    override fun getAllNecessaryEquipment(ids: List<Long>): List<Equipment> {
-        return equipmentRepository.findByIdIn(ids)
-    }
+    override fun getTotalEquipmentPrice(necessaryEquipment: ArrayList<Equipment>): Int =
+        necessaryEquipment.sumOf { it.price }
 }

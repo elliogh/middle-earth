@@ -13,7 +13,7 @@ import lombok.Setter
 class Danger(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long,
+    val id: Int,
     val name: String,
     val description: String,
     @ManyToMany(cascade = [ CascadeType.PERSIST, CascadeType.MERGE ])

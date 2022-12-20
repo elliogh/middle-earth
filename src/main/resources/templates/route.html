@@ -3,20 +3,63 @@
 <head>
     <title>Getting Started: Serving Web Content</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link th:href="@{/css/route.css}" rel="stylesheet" />
 </head>
 <body>
-<tr th:each="location : ${path}">
-    <td th:text="${location.name}"></td>
-    <td th:if="${location != finish}">→</td>
-</tr>
-<p>Информация о начальной локации</p>
-<p th:text="${start.name}" />
-<p th:text="${start.description}" />
-<p>Информация о конечной локации</p>
-<p th:text="${finish.name}" />
-<p th:text="${finish.description}" />
-<form action="#" th:action="@{/}">
-    <button type="submit">Назад</button>
-</form>
+<div class="wrapper">
+    <div class="graph-picture" id="graph-picture"></div>
+    <div class="content-block" id="path-info">
+        <div class="header"><td class="header">Путь: </td></div>
+        <tr th:each="location : ${path}">
+            <td th:text="${location.name}"></td>
+            <td th:if="${location != finish}">→</td>
+        </tr>
+    </div>
+    <div class = "content-block" id="what-to-buy">
+        <p class="header">Что купить:</p>
+        <table>
+            <tr>
+                <th>Предмет</th>
+                <th>Цена</th>
+            </tr>
+            <tr th:each="equipment : ${necessaryEquipment}">
+                <td th:text="${equipment.name}">Предмет</td>
+                <td th:text="${equipment.price}">Цена</td>
+            </tr>
+        </table>
+        <p th:if="${totalEquipmentPrice} != 0">Итого <span th:text="${totalEquipmentPrice}"></span> монет</p>
+        </br>
+        <p>Итого ваше путешетвие обойдется вам в <span th:text="${totalPassPrice} + ${totalEquipmentPrice}"></span> монет</p>
+
+    </div>
+    <div class = "content-block" id="who-pay">
+        <p class="header">Кому заплатить за проход:</p>
+        <table>
+            <tr>
+                <th>Раса</th>
+                <th>Цена</th>
+            </tr>
+            <tr th:each="rel : ${relationships}">
+                <td th:text="${rel.key.name}">Раса</td>
+                <td th:text="${rel.value}">Цена</td>
+            </tr>
+        </table>
+        <p th:if="${totalPassPrice} != 0">Итого <span th:text="${totalPassPrice}"></span> монет</p>
+        </br>
+        <form action="#" th:action="@{/}">
+            <button type="submit">Назад</button>
+        </form>
+    </div>
+    <div class="start-location-info" id="start-location-info">
+        <p class="header">Информация о начальной локации</p>
+        <p th:text="${start.name}" />
+        <p th:utext="${start.description}"></p>
+    </div>
+    <div th:if="${start.name} != ${finish.name}" class="finish-location-info" id="finish-location-info">
+        <p class="header">Информация о конечной локации</p>
+        <p th:text="${finish.name}" />
+        <p th:utext="${finish.description}"></p>
+    </div>
+</div>
 </body>
 </html>

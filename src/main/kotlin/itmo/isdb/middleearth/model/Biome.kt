@@ -9,8 +9,8 @@ import lombok.NoArgsConstructor
 class Biome(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public val id: Long,
-    public val name: String,
+    val id: Int,
+    val name: String,
     @ManyToMany(cascade = [ CascadeType.PERSIST, CascadeType.MERGE ])
     @JoinTable(
         name = "biome_equipment",

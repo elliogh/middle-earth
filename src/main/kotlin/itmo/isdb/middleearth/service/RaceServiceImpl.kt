@@ -13,7 +13,7 @@ class RaceServiceImpl(
     override fun getAll(): List<Race> =
         raceRepository.findAll()
 
-    override fun getRaceById(id: Long): Optional<Race> =
+    override fun getRaceById(id: Int): Optional<Race> =
         raceRepository.findById(id)
 
     @Transactional

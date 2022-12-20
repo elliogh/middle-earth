@@ -7,7 +7,7 @@ import jakarta.persistence.*
 class Equipment(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long,
+    val id: Int,
     val name: String,
-    val price: Long
+    val price: Int
 )

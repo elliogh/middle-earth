@@ -3,6 +3,6 @@ package itmo.isdb.middleearth.service
 import itmo.isdb.middleearth.model.Equipment
 
 interface EquipmentService {
-    fun getNecessaryEquipment(locationId: Int, raceId: Int): ArrayList<Long>
-    fun getAllNecessaryEquipment(ids: List<Long>): List<Equipment>
+    fun getNecessaryEquipment(locationIds: ArrayList<Int>, raceId: Int): ArrayList<Equipment>
+    fun getTotalEquipmentPrice(necessaryEquipment: ArrayList<Equipment>): Int
 }

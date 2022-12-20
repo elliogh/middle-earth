@@ -5,7 +5,7 @@ import org.springframework.data.repository.CrudRepository
 import java.util.*
 import kotlin.collections.ArrayList
 
-interface LocationRepository : CrudRepository<Location, Long> {
-    override fun findById(id: Long): Optional<Location>
+interface LocationRepository : CrudRepository<Location, Int> {
+    override fun findById(id: Int): Optional<Location>
     override fun findAll(): ArrayList<Location>
 }
