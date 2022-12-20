@@ -1,0 +1,12 @@
+DROP TABLE relationship;
+DROP TABLE speed_bonus;
+DROP TABLE resistance_to_danger;
+DROP TABLE danger_equipment;
+DROP TABLE biome_equipment;
+DROP TABLE equipment;
+DROP TABLE location_danger;
+DROP TABLE danger;
+DROP TABLE neighbours;
+DROP TABLE location;
+DROP TABLE biome;
+DROP TABLE race;
