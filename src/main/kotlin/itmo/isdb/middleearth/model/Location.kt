@@ -22,6 +22,7 @@ class Location(
     @JoinColumn(name = "race_id")
     val race: Race,
     val visitTime: Long,
+    val description: String,
     @ManyToMany(cascade = [ CascadeType.PERSIST, CascadeType.MERGE ], fetch = FetchType.EAGER)
     @JoinTable(
         name = "location_danger",

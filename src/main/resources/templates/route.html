@@ -6,14 +6,15 @@
 </head>
 <body>
 <tr th:each="location : ${path}">
-    <td th:text="${location.name}   "></td>
+    <td th:text="${location.name}"></td>
+    <td th:if="${location != finish}">→</td>
 </tr>
 <p>Информация о начальной локации</p>
 <p th:text="${start.name}" />
-<p th:text="${start.biome.name}" />
+<p th:text="${start.description}" />
 <p>Информация о конечной локации</p>
 <p th:text="${finish.name}" />
-<p th:text="${finish.biome.name}" />
+<p th:text="${finish.description}" />
 <form action="#" th:action="@{/}">
     <button type="submit">Назад</button>
 </form>
